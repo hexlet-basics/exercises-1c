@@ -1,3 +1,3 @@
 // BEGIN
-Сообщить("Hllo, World!");
+Сообщить("Hello, World!");
 // END
