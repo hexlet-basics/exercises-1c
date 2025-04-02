@@ -2,5 +2,4 @@
 services:
   exercises:
     volumes:
-      # TODO: replace exercises-template with "exercises-<language>"
       - ".:/exercises-1c"

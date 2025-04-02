@@ -2,6 +2,5 @@
 services:
   exercises:
     build: .
-    # TODO: replace exercises-template with "exercises-<language>"
-    image: hexletbasics/exercises-template:cached
+    image: hexletbasics/exercises-1c:cached
     command: make check
