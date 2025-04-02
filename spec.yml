@@ -1,6 +1,8 @@
 language:
-  # TODO: replace exercises-template with "exercises-<language>"
-  docker_image: "hexletbasics/exercises-template"
-  extension: sh # TODO: replace
-  exercise_filename: index.sh # TODO: replace
-  exercise_test_filename: test_index.sh # TODO: replace
+  docker_image: "hexletbasics/exercises-1c"
+  extension: os
+  exercise_filename: index.os
+  exercise_test_filename: test_index.bats
+  learn_as: first_language
+  progress: completed
+  name: 1С

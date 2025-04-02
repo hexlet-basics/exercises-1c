@@ -2,13 +2,6 @@ FROM hexletbasics/base-image:latest
 
 # https://github.com/firstBitMarksistskaya/onec-docker/blob/feature/first-bit/oscript/Dockerfile
 
-# Аргументы по умолчанию
-ARG MONO_VERSION=6.12.0.122
-ARG OVM_REPOSITORY_OWNER=oscript-library
-ARG OVM_VERSION=v1.2.3
-ARG ONESCRIPT_VERSION=stable
-ARG ONESCRIPT_PACKAGES="add gitsync vanessa-runner stebi edt-ripper"
-
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     ca-certificates \
@@ -38,6 +31,13 @@ RUN chmod +x /remove-dst-root-ca-x3.sh \
   && /remove-dst-root-ca-x3.sh \
   && rm /remove-dst-root-ca-x3.sh
 
+# Аргументы по умолчанию
+ARG MONO_VERSION=6.12.0.122
+ARG OVM_REPOSITORY_OWNER=oscript-library
+ARG OVM_VERSION=v1.3.0
+ARG ONESCRIPT_VERSION=stable
+ARG ONESCRIPT_PACKAGES="add gitsync vanessa-runner stebi edt-ripper"
+
 # Установка ovm и onescript
 RUN wget https://github.com/${OVM_REPOSITORY_OWNER}/ovm/releases/download/${OVM_VERSION}/ovm.exe \
   && mv ovm.exe /usr/local/bin/ \
@@ -59,7 +59,12 @@ RUN opm install opm \
        && gitsync plugins disable limit; \
      fi
 
-# Установка точки входа
-# COPY ./oscript/docker-entrypoint.sh /
-# RUN chmod +x /docker-entrypoint.sh
-# ENTRYPOINT ["/docker-entrypoint.sh"]
+# RUN opm install oneunit
+
+RUN git clone https://github.com/bats-core/bats-core.git /opt/bats && \
+    /opt/bats/install.sh /usr/local
+
+ENV PATH=/exercises-1c/bin:$PATH
+WORKDIR /exercises-1c
+
+COPY . .

@@ -36,3 +36,9 @@ ci-check:
 
 find-todo:
 	git grep TODO
+
+docker-build-original:
+	docker buildx build -t hexletbasics/exercises-1c .
+
+docker-push-original:
+	docker push hexletbasics/exercises-1c
