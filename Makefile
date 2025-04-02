@@ -12,7 +12,7 @@ compose-bash:
 	docker-compose run exercises bash
 
 compose-build:
-	docker-compose build
+	COMPOSE_BAKE=true docker-compose build
 
 compose-test:
 	docker-compose run exercises make test
