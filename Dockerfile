@@ -9,15 +9,6 @@ ARG OVM_VERSION=v1.2.3
 ARG ONESCRIPT_VERSION=stable
 ARG ONESCRIPT_PACKAGES="add gitsync vanessa-runner stebi edt-ripper"
 
-FROM hexletbasics/base-image:latest
-
-# Аргументы по умолчанию
-ARG MONO_VERSION=6.12.0.122
-ARG OVM_REPOSITORY_OWNER=oscript-library
-ARG OVM_VERSION=v1.2.3
-ARG ONESCRIPT_VERSION=stable
-ARG ONESCRIPT_PACKAGES="add gitsync vanessa-runner stebi edt-ripper"
-
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     ca-certificates \
