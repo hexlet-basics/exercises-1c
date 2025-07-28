@@ -1,5 +1,5 @@
 language:
-  docker_image: "hexletbasics/exercises-1c"
+  docker_image: "ghcr.io/hexlet-basics/exercises-1c"
   extension: os
   exercise_filename: index.os
   exercise_test_filename: test_index.bats

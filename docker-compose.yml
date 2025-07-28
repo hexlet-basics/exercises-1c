@@ -2,5 +2,4 @@
 services:
   exercises:
     build: .
-    image: hexletbasics/exercises-1c:cached
     command: make check
